@@ -1,5 +1,7 @@
 package ru.otus.java.basic.homeworks.homework3;
 
+import java.sql.SQLOutput;
+
 public class AppHW3 {
     public static void main(String[] args) {
         System.out.println("Задание 1");
@@ -11,7 +13,9 @@ public class AppHW3 {
         System.out.println("Задание 3");
         zeroDiagonals(new int[][]{{1, 1, 1, 1}, {9, 9, 9, 9}, {7, 7, 7, 7}, {3, 3, 3, 3}});
         System.out.println("Задание 4");
-        findMax();
+        findMax(new int[][]{{6, 8, 9, 73, 6, 4, 3, 1, 2, 6}, {9, 25, 9, 0, 6, 7, 4, 101, 56}});
+        System.out.println("Задание 5");
+        sum2line(new int[][]{{6, 8, 9, 7},{6, 1, 9, 7}});
     }
 
 
@@ -41,19 +45,34 @@ public class AppHW3 {
                 if (i == j) {
                     array2d[i][j] = val;
                 }
-                System.out.printf("%4d",array2d[i][j]);
+                System.out.printf("%4d", array2d[i][j]);
             }
             System.out.println();
         }
     }
 
     public static void findMax(int[][] array) {
-        int val = 0;
+        int max =  array [0][0];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                if (array[i][j] > array.length) ;
-                val++;
+                if (array[i][j] > max) {
+                    max = array [i][j];
+                }
             }
         }
+        System.out.println(max);
+    }
+
+    public static void sum2line(int [][] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                sum += array[1][j];
+                if (array.length < 2) {
+                    System.out.println( "-1" );
+                }
+            }
+        }
+        System.out.println(sum);
     }
 }
