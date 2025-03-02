@@ -18,8 +18,18 @@ public class Application {
             users[i].year();
         }
 
-
         Box box1 = new Box("red", 10, true);
         box1.infoBox();
+        boolean object = true;
+        String objectName = "ball";
+        if (box1.openBox()){
+            if (object == true) {
+                System.out.println("В коробке есть предмет: " + objectName + ", можно его выкинуть и положить другой");
+            } else {
+                System.out.println("В коробке нет предмета, можно положить " + objectName);
+            }
+        } else {
+            box1.closeBox();
+        }
     }
 }
