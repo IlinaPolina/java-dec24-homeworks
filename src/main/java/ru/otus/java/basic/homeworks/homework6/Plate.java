@@ -25,38 +25,7 @@ public class Plate {
         this.curAmountFood = curAmountFood;
     }
 
-    public void info() {
-        System.out.println();
-    }
-    public void quantity(int quantity) {
-        if (quantity <= maxAmountFood) {
-            System.out.println("Тарелка полная еды, еды: " + quantity + " гр.");
-        } else {
-            System.out.println("Тарелка переполнена");
-        }
-    }
-
-    public void plusEat (boolean condition) {
-        if (condition == true) {
-            curAmountFood += 10;
-            System.out.println("Тарелка пополнилась на 10 грамм еды.");
-            System.out.println("Текущее количество еды: " + curAmountFood);
-        }
-        else {
-            System.out.println("Текущее количество еды: " + curAmountFood);
-        }
-    }
-    public void minusEat(boolean condition) {
-        if (condition == true) {
-            curAmountFood -= 10;
-            System.out.println("Тарелка уменьшилась на 10 грамм еды.");
-            System.out.println("Текущее количество еды: " + curAmountFood);
-        }
-        else {
-            System.out.println("Текущее количество еды: " + curAmountFood);
-        }
-    }
-    public void takeFood (int amount) {
+    public void addFood(int amount) {
         curAmountFood += amount;
         if (curAmountFood > maxAmountFood) {
             System.out.println("Тарелка переполнилась, количество еды: " + maxAmountFood);
@@ -64,15 +33,22 @@ public class Plate {
             System.out.println("Текущее количество еды в тарелке: " + curAmountFood);
         }
         else {
-            System.out.println("Тарелка пополнилась на " + amount + " гр. еды");
+            System.out.println("Тарелка пополнилась на " + amount);
             System.out.println("Текущее количество еды в тарелке: " + curAmountFood);
         }
     }
 
-    public void eatFood (int amount1) {
-        curAmountFood -= amount1;
+    public boolean eatFood (int appetit) {
+        curAmountFood -= appetit;
+        if(curAmountFood >= 0) {
+            System.out.println("Кот поел, количество еды уменьшилось на " + appetit);
+            System.out.println("Текущее кол-во еды в тарелке: " + curAmountFood);
+            return true;
+        } else {
+            System.out.println("Еды нет");
+            return false;
+        }
     }
-
     @Override
     public String toString() {
         return "Plate{" +

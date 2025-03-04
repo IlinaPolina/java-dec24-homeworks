@@ -2,33 +2,47 @@ package ru.otus.java.basic.homeworks.homework6;
 
 public class Cat {
     String name;
-    boolean hungry;
+    boolean satiety;
+    int appetit;
 
-    public Cat(String name,boolean hungry) {
+    public Cat(String name,boolean hungry, int appetit) {
         this.name = name;
-        this.hungry = hungry;
+        this.satiety = hungry;
+        this.appetit = appetit;
+    }
+
+    public int getAppetit() {
+        return appetit;
+    }
+
+    public void setAppetit(int appetit) {
+        this.appetit = appetit;
     }
 
     public String getName() {
         return name;
     }
 
-
-    public boolean isHungry() {
-        return hungry;
+    public boolean isSatiety() {
+        return satiety;
     }
 
-    public void setHungry(boolean hungry) {
-        this.hungry = hungry;
+    public void setSatiety(boolean satiety) {
+        this.satiety = satiety;
     }
     public void eat (Plate plate) {
-        if (hungry) {
-            plate.eatFood (350);
-            System.out.println(name + " поел");
-            hungry = false;
+        if (satiety == true) {
+            plate.eatFood (appetit);
+            satiety = false;
         }
         else {
             System.out.println(name + " сыт");
+            satiety = false;
+        }
+        if (plate.curAmountFood < appetit) {
+            System.out.println(name + " не хватает еды");
+            satiety = true;
         }
     }
+
 }
