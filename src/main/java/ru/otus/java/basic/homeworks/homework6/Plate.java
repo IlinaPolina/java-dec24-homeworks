@@ -39,9 +39,9 @@ public class Plate {
     }
 
     public boolean eatFood (int appetit) {
-        curAmountFood -= appetit;
-        if(curAmountFood >= 0) {
-            System.out.println("Кот поел, количество еды уменьшилось на " + appetit);
+        if(curAmountFood >= 0 && curAmountFood >= appetit) {
+            System.out.println("Количество еды уменьшилось на " + appetit);
+            curAmountFood -= appetit;
             System.out.println("Текущее кол-во еды в тарелке: " + curAmountFood);
             return true;
         } else {

@@ -5,9 +5,9 @@ public class Cat {
     boolean satiety;
     int appetit;
 
-    public Cat(String name,boolean hungry, int appetit) {
+    public Cat(String name,boolean satiety, int appetit) {
         this.name = name;
-        this.satiety = hungry;
+        this.satiety = satiety;
         this.appetit = appetit;
     }
 
@@ -31,17 +31,17 @@ public class Cat {
         this.satiety = satiety;
     }
     public void eat (Plate plate) {
-        if (satiety == true) {
+        if (satiety == false) {
             plate.eatFood (appetit);
-            satiety = false;
+            satiety = true;
         }
         else {
             System.out.println(name + " сыт");
-            satiety = false;
+            satiety = true;
         }
         if (plate.curAmountFood < appetit) {
             System.out.println(name + " не хватает еды");
-            satiety = true;
+            satiety = false;
         }
     }
 
