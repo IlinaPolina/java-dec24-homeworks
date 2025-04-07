@@ -17,14 +17,15 @@ public class Application {
         staffListName(employees);
         staffListAge(employees,35);
         staffListMinAge(employees,25);
-        yongStaff(employees);
 
+        Employee youngest = yongStaff(employees);
+        System.out.println("Самый молодой сотрудник: " + youngest);
     }
 
     private static void minMax(int min, int max) {
         ArrayList<Integer> list = new ArrayList<>();
         int x = 0;
-        for (int i = min; i < max; i++) {
+        for (int i = min; i <= max; i++) {
             list.add(i + 1);
         }
         System.out.println(list);
@@ -56,15 +57,15 @@ public class Application {
         System.out.println(list);
     }
 
-    private static void staffListName(ArrayList <Employee> employees) {
+    private static ArrayList staffListName(ArrayList <Employee> employees) {
         ArrayList<String> names = new ArrayList<>();
         for (int i = 0; i < employees.size(); i++) {
             names.add(employees.get(i).getName());
         }
-        System.out.println(names);
+        return names;
     }
 
-    private static void staffListAge(ArrayList <Employee> employees, int a) {
+    private static ArrayList staffListAge(ArrayList <Employee> employees, int a) {
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Integer> ages = new ArrayList<>();
 
@@ -79,8 +80,9 @@ public class Application {
                 System.out.println(ages);
             }
         }
+        return names;
     }
-    private static void staffListMinAge(ArrayList <Employee> employees, int a) {
+    private static ArrayList staffListMinAge(ArrayList <Employee> employees, int a) {
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Integer> ages = new ArrayList<>();
 
@@ -90,22 +92,24 @@ public class Application {
         System.out.println(names);
         int sum = 0;
         for (int i = 0; i < employees.size(); i++) {
-            ages.add(employees.get(i).getAge());
-            sum += ages.get(i)/employees.size();
             if (sum < a){
                 System.out.println("Минимальный средний возраст превышен");
             }
+            ages.add(employees.get(i).getAge());
+            sum += ages.get(i)/employees.size();
             System.out.println("Минимальный средний возраст не превышен");
         }
+        return employees;
     }
 
-    private static void yongStaff(ArrayList <Employee> employees) {
+
+    private static Employee yongStaff(ArrayList <Employee> employees) {
         Employee youngest = employees.get(0);
         for (int i = 1; i < employees.size(); i++) {
             if (employees.get(i).getAge() < youngest.getAge()) {
                 youngest = employees.get(i);
             }
         }
-        System.out.println("Самый молодой сотрудник: " + youngest);
+        return youngest;
     }
 }
