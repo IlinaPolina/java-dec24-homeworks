@@ -9,6 +9,9 @@ public class PhoneBook {
     private Map<String, List<String>> contacts = new HashMap<>();
 
     public void add (String name, String phoneNumber) {
+        if (name == null || phoneNumber == null) {
+            throw new IllegalArgumentException("Имя и номер телефона не должны быть null");
+        }
         if (contacts.containsKey(name)) {
             contacts.get(name).add(phoneNumber);
         }
