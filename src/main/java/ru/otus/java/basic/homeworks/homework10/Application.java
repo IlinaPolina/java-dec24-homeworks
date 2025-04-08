@@ -6,6 +6,7 @@ public class Application {
         book.add("Ivanov Ivan", "1234567890");
         book.add("Maria Magdalina", "0987654321");
         book.add("Fedor Magregor", "777-000-333");
+        book.add(null, "777-000-333");
 
         System.out.println(book.find("Ivanov Ivan"));
         System.out.println(book.find("Sidorov"));
